@@ -1,3 +1,3 @@
 # Pokedex
  
-Projeto realizado com PHP no backend e HTML, CSS e JavaScript no frontend.
+Project carried out using PHP on the back-end and HTML, CSS and JavaScript on the front-end.
