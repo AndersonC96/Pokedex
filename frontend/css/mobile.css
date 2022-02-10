@@ -1,13 +1,13 @@
-@font-face {
+@font-face{
     font-family: "Pokemon";
     src: url("../font/VCR_OSD_MONO_1.001.ttf");
 }
-* {
+*{
     margin: 0;
     padding: 0;
     font-family: Pokemon;
 }
-#pokedex {
+#pokedex{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     height: 100vh;
     overflow: hidden;
 }
-#imagem {
+#imagem{
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -25,10 +25,10 @@
     border: 3px solid#f67272;
     transform: scale(1.1);
 }
-#imagem > img {
+#imagem > img{
     max-width: 200px !important;
 }
-#descricao {
+#descricao{
     width: 80%;
     background-color: #f67272;
     text-align: justify;
@@ -39,7 +39,7 @@
     color: #554949;
     margin-bottom: 25px;
 }
-#titulo {
+#titulo{
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
@@ -47,13 +47,13 @@
     color: white;
     text-shadow: 2px 1px 2px black;
 }
-#tipos {
+#tipos{
     margin: 5px;
     display: flex;
     justify-content: space-around;
     width: 90%;
 }
-#tipos > span {
+#tipos > span{
     background-color: green;
     padding: 5px;
     color: white;
@@ -62,34 +62,34 @@
     box-shadow: 1px 2px 5px #444;
     cursor: pointer;
 }
-#evolucoes {
+#evolucoes{
     width: 100%;
     display: flex;
     justify-content: space-around;
     font-size: 1rem;
     text-align: center;
 }
-#busca {
+#busca{
     width: 90%;
     display: flex;
     justify-content: space-around;
 }
-#busca > input {
+#busca > input{
     width: 100%;
     padding-left: 20px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-#busca>select {
+#busca>select{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-left: 1px solid gray;
 }
-#busca>input,#busca>select {
+#busca>input,#busca>select{
     height: 30px;
     border: none;
 }
-#lista {
+#lista{
     margin-top: 20px;
     width: 90%;
     overflow: auto;
@@ -98,33 +98,33 @@
     box-shadow: 2px 4px 4px #333;
     border-radius: 10px;
 }
-#lista>table {
+#lista>table{
     width: 100%;
     background-color: #de3131;
 }
-#lista>table>tbody>tr>td {
+#lista>table>tbody>tr>td{
     height: 30px !important;
     border-bottom: 1px solid #ff4343;
 }
-#lista>table>tbody>tr:hover, #lista>table>tbody>tr>td:hover {
+#lista>table>tbody>tr:hover, #lista>table>tbody>tr>td:hover{
     background-color: red;
     cursor: pointer;
 }
-.pokemonSelecionado {
+.pokemonSelecionado{
     background-color: #9a1b1b !important;
     color: white;
 }
-td {
+td{
     text-align: center;
 }
-.nomePokemon {
+.nomePokemon{
     text-align: left !important;
 }
-.evolucoesPokemon:hover {
+.evolucoesPokemon:hover{
     color: #FFF;
     cursor: pointer;
 }
-.sidenav {
+.sidenav{
     height: 100%;
     width: 0;
     position: fixed;
@@ -137,7 +137,7 @@ td {
     padding-top: 60px;
     padding-left: 20px;
 }
-.sidenav a {
+.sidenav a{
     margin-top:20px;
     text-decoration: none;
     font-size: 18px;
@@ -145,38 +145,38 @@ td {
     display: block;
     transition: 0.3s;
 }
-.sidenav a:hover {
+.sidenav a:hover{
     color: #f1f1f1;
 }
-.sidenav .closebtn {
+.sidenav .closebtn{
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
 }
-#btnMenu {
+#btnMenu{
     position: absolute;
     top: 5px;
     right: 25px;
     margin-left: 50px;
 }
-#btnMenu>img {
+#btnMenu>img{
     width: 36px;
 }
-#menuMobile {
+#menuMobile{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+@media screen and (max-height: 450px){
+    .sidenav{padding-top: 15px;}
+    .sidenav a{font-size: 18px;}
 }
-#modal {
+#modal{
     display:none;
 }
-#modal-content {
+#modal-content{
     position: fixed;
     width: 100%;
     overflow: none;
@@ -186,7 +186,7 @@ td {
     top: 20px;
     z-index: 1;
 }
-.modal-body {
+.modal-body{
     background-color: white;
     border-radius:10px;
     max-width: 500px;
@@ -195,20 +195,20 @@ td {
     text-align: center;
     padding:20px;
 }
-.modal-body > button {
+.modal-body > button{
     width: 200px;
     height: 40px;
     background-color: blue;
     color: white;
     text-align: center;
 }
-.modal-body > img {
+.modal-body > img{
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
     height: auto;
 }
-.btn {
+.btn{
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -225,16 +225,16 @@ td {
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-.entre-botoes {
+.entre-botoes{
     display: flex;
     justify-content: space-around;
 }
-.btn-success {
+.btn-success{
     color: #fff;
     background-color: #28a745;
     border-color: #28a745;
 }
-.btn-light {
+.btn-light{
     color: #212529;
     background-color: #dae0e5;
     border-color: #d3d9df;
