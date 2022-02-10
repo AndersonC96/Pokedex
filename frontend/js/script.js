@@ -32,7 +32,7 @@ treinadores = [
         link: 'https://www.facebook.com/groups/osadpa/',
     }
 ];
-function startBattle() {
+function startBattle(){
     const audio = document.getElementById('battle');
     audio.play();
     const treinador = treinadores[Math.floor(Math.random()*treinadores.length)];
@@ -46,14 +46,14 @@ function startBattle() {
     modal.html(batalha);
     $("#modal").fadeIn();
 }
-function stopBattle() {
+function stopBattle(){
     const audio = document.getElementById('battle');
     audio.currentTime = 0;
     audio.pause();
     $(".modal-body").html('');
     $("#modal").fadeOut();
 }
-function arrayFilter() {
+function arrayFilter(){
     const buscaEl = $("#busca");
     const busca = buscaEl.find("input").val().trim();
     const tipoSelect = buscaEl.find("select").val();
@@ -70,31 +70,31 @@ function arrayFilter() {
         });
     return lista;
 };
-$(function () {
+$(function (){
     carregarDados();
 });
-function criarTipos() {
+function criarTipos(){
     const select = $("#busca").find("select");
     select.html('');
     let tipos = "<option value='todos' selected>TODOS</option>";
-    arrayTipos.forEach(tipo => {
+    arrayTipos.forEach(tipo =>{
         tipos += `<option value='${tipo.id}'>${tipo.nome}</option>`;
     });
     select.html(tipos);
 }
-function criarTabela() {
+function criarTabela(){
     const tbody = $("#lista").find("table").find("tbody");
     tbody.html('');
     let pokemonsTr = '';
     const lista = arrayFilter();
-    if (lista.length === 0) {
+    if (lista.length === 0){
         pokemonsTr = `<tr>
                         <td colspan="2" style="text-align: center;">
                         SEM REGISTROS
                         </td>
                         </tr>`;
-    } else {
-        lista.forEach(pokemon => {
+    } else{
+        lista.forEach(pokemon =>{
             pokemonsTr += `<tr onclick="abrirDetalhesPokemon($(this))" key="${pokemon.numero_dex}">
                             <td>#${pokemon.numero_dex}</td>
                             <td class='nomePokemon'>${pokemon.nome}</td>
@@ -103,32 +103,32 @@ function criarTabela() {
     }
     tbody.html(pokemonsTr);
 }
-function abrirDetalhesPokemon(tr) {
+function abrirDetalhesPokemon(tr){
     const numeroDex = tr.attr("key");
     const pokemon = arrayPokemons
         .find(pokemon => Number(pokemon.numero_dex) === Number(numeroDex));
-    if (!pokemon) {
+    if (!pokemon){
         console.log(`pokemon ${numeroDex} não encontrado`);
         return false;
     }
     $("td").removeClass("pokemonSelecionado");
     tr.find("td").addClass("pokemonSelecionado");
     visualizados++;
-    if (battleVisualization.indexOf(visualizados) > -1) {
+    if (battleVisualization.indexOf(visualizados) > -1){
         startBattle();
     }
     escreverNaTela(pokemon);
 }
-function pesquisarPorTipo(tipoId) {
+function pesquisarPorTipo(tipoId){
     $("#busca").find("select").val(tipoId);
     criarTabela();
 }
-function carregarDados() {
+function carregarDados(){
     $.ajax({
         url: `${urlBackend}/pokemons`,
         dataType: 'JSON',
-        success: function (result) {
-            if (result.status === 0) {
+        success: function (result){
+            if (result.status === 0){
                 console.log(result.msg);
                 return;
             }
@@ -139,8 +139,8 @@ function carregarDados() {
     $.ajax({
         url: `http://localhost/Pokedex/sistema/tipos.php`,
         dataType: 'JSON',
-        success: function (result) {
-            if (result.status === 0) {
+        success: function (result){
+            if (result.status === 0){
                 console.log(result.msg);
                 return;
             }
@@ -159,32 +159,32 @@ function escreverNaTela({
     id_proximo,
     proximo,
     tipos,
-}) {
+}){
     const titulo = `${nome} - #${numero_dex}`;
-    if (anterior) {
+    if (anterior){
         const pokemonAnterior = anterior ? anterior : "NENHUM";
         const linkAnterior = anterior ? `abrirDetalhesPokemon($("tr[key='${id_anterior}']"))` : "";
         $("#evoluiDe").find("span").text(pokemonAnterior);
         $("#evoluiDe").find("span").attr("onclick", linkAnterior);
         $("#evoluiDe").find("span").addClass('evolucoesPokemon');
-    } else {
+    } else{
         $("#evoluiDe").find("span").html('NENHUM');
         $("#evoluiDe").find("span").attr('onclick', '');
         $("#evoluiDe").find("span").removeClass('evolucoesPokemon');
     }
-    if (proximo) {
+    if (proximo){
         const pokemonProximo = proximo ? proximo : "NENHUM";
         const linkProximo = proximo ? `abrirDetalhesPokemon($("tr[key='${id_proximo}']"))` : "";
         $("#evoluiPara").find("span").text(pokemonProximo);
         $("#evoluiPara").find("span").attr("onclick", linkProximo);
         $("#evoluiPara").find("span").addClass('evolucoesPokemon');
-    } else {
+    } else{
         $("#evoluiPara").find("span").html('NENHUM');
         $("#evoluiPara").find("span").attr('onclick', '');
         $("#evoluiPara").find("span").removeClass('evolucoesPokemon');
     }
     let tiposSpan = '';
-    tipos.forEach(tipo => {
+    tipos.forEach(tipo =>{
         const cor = tipo.cor ? `background-color: ${tipo.cor};` : '';
         const corTexto = tipo.corTexto ? `color: ${tipo.corTexto};` : '';
         const style = `style="${cor} ${corTexto}"`;
