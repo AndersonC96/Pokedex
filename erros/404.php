@@ -1,3 +1,3 @@
 <?php
-echo "Página não encontrada";
+    echo "Página não encontrada";
 ?>
